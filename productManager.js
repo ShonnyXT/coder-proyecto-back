@@ -1,1 +1,4 @@
-class productManager {}
+let productos = []
+class productManager {
+    
+}
