@@ -11,7 +11,11 @@ class productManager {
         let product = this.products.find(prod => prod.code === newProduct.code)
         if (product) return 'Un producto con este codigo ya fué ingresado'
 
-        return this.products.push({id: this.products.length+1, ... newProduct})
+        if (this.products.length === 0) {
+            return this.products.push({id: 1, ... newProduct})
+        }
+
+        return [ ... this.products, {id: this.products[this.products.length-1].id + 1, ... newProduct}]
     }
     getProducts() {
         return this.products
@@ -21,12 +25,10 @@ class productManager {
         if (!product) return 'Product Not Found'
         return product
     }
-
 }
 
 const product = new productManager()
 
-/* product.addProduct({title: 'Producto'}) */
 product.addProduct({
     title: 'Producto 1',
     description: 'Una descripción',
