@@ -21,8 +21,8 @@ class ProductManager {
         if (!product) return 'Producto no encontrado.'
         return product
     }
-    updateProduct(){
-
+    updateProduct(id, propiedad, valor){
+        return this.products[id-1][propiedad] = valor
     }
     deleteProduct(id){
         return this.products.splice(id-1,1)
@@ -79,4 +79,8 @@ console.log(product.getProducts());
 console.log(product.getProductById(4));
 // Borrar un producto
 product.deleteProduct(3)
+// Actualizar un producto (id, propiedad, valor)
+product.updateProduct(2, "tittle", 'Producto 2')
+
+console.log('Salida')
 console.log(product.getProducts());
