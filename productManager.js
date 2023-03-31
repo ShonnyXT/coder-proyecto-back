@@ -11,6 +11,8 @@ class ProductManager {
         let product = this.products.find(prod => prod.code == newProduct.code)
         if (product) return 'Un producto con este código ya fue ingresado.'
 
+        if (this.products.length == 0) return this.products.push({id: 1, ... newProduct})
+
         return this.products.push({id: this.products.length + 1, ... newProduct})
     }
     getProducts(){
